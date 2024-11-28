@@ -4,10 +4,22 @@
  */
 package Model.Pago;
 
+import Model.Mapper.Mapper;
+
 /**
  *
  * @author pamel
  */
-public class PagoMapper {
+public class PagoMapper implements Mapper<Pago, PagoDTO> {
+
+    @Override
+    public PagoDTO toDto(Pago ent) {
+        
+    }
+
+    @Override
+    public Pago toEntity(PagoDTO dto) {
+        
+    }
     
 }

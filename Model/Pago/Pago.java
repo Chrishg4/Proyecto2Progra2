@@ -57,6 +57,5 @@ public class Pago {
         return "Pago{" + "idpago=" + idpago + ", customer=" + customer + ", fecha=" + fecha + ", subtotal=" + subtotal + ", impuesto=" + impuesto + ", total=" + total + '}';
     }
 
-    
    
 }
