@@ -28,7 +28,7 @@ public class PagoMapper implements Mapper<Pago, PagoDTO> {
     public Pago toEntity(PagoDTO dto) {
          if(dto == null) return null;
          return new Pago(
-         dto.getPago(),
+         dto.getIdPago(),
          dto.getCustomer(),
          dto.getFecha(),
          dto.getSubtotal(),
