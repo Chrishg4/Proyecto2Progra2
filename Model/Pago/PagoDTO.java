@@ -12,15 +12,15 @@ import java.util.Date;
  * @author pamel
  */
 public class PagoDTO {
-    private int pago;
+    private int idpago;
      private Customer customer;
     private Date fecha;
     private double subtotal;
     private double impuesto;
     private double total;
 
-    public int getPago() {
-        return pago;
+    public int getIdPago() {
+        return idpago;
     }
 
     public Customer getCustomer() {
@@ -44,7 +44,7 @@ public class PagoDTO {
     }
 
     public PagoDTO(int pago, Customer customer, Date fecha, double subtotal, double impuesto, double total) {
-        this.pago = pago;
+        this.idpago = pago;
         this.customer = customer;
         this.fecha = fecha;
         this.subtotal = subtotal;
