@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
  * @author sofia
  */
 public class Clase {
-        private int id;
+
+    private int id;
     private String tipoClase;
     private LocalDateTime horario;
     private Entrenador entrenadorId;
@@ -57,6 +58,5 @@ public class Clase {
         this.entrenadorId = entrenadorId;
         this.capacidadMaxima = capacidadMaxima;
     }
-    
-    
+
 }
