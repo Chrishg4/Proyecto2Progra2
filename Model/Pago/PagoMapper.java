@@ -6,11 +6,13 @@ package Model.Pago;
 
 import Database.Database;
 import Model.Customer.CustomerDAO;
+import Model.Customer.CustomerDTO;
 import Model.Customer.CustomerMapper;
 import Model.Mapper.Mapper;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.Connection;
 
 /**
  *
@@ -39,17 +41,26 @@ public class PagoMapper implements Mapper<Pago, PagoDTO> {
             return null;
         }
         try {
+
+            // Obtén la instancia de Database usando el patrón Singleton
+            Database database = Database.getInstance();
+
+            // Usa el método getConnection() de la instancia
+            Connection connection = database.getConnection();
+
+            // Recupera el cliente utilizando el DAO
+            CustomerDAO customerDAO = new CustomerDAO(connection);
+            CustomerDTO customer = customerDAO.read(dto.getCustomer());
+
             return new Pago(
                     dto.getIdPago(),
-                    new CustomerMapper().toEntity(new CustomerDAO(Database.getConnection()).read(dto.getCustomer())),
+                    new CustomerMapper().toEntity(customer),
                     dto.getFecha(),
                     dto.getSubtotal(),
                     dto.getImpuesto(),
                     dto.getTotal()
             );
         } catch (SQLException ex) {
-            Logger.getLogger(PagoMapper.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
             Logger.getLogger(PagoMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;

@@ -14,12 +14,32 @@ import java.sql.DriverManager;
  */
 public class Database {
 
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/vehiclerentalsystem";
+  private static Database instance; 
+    private Connection connection;
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/gestiongimnasio";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
-    public static Connection getConnection() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+    // Constructor privado para evitar instancias externas
+    private Database() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            this.connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException("Error al conectar a la base de datos", e);
+        }
+    }
+
+    // Método para obtener la instancia única
+    public static synchronized Database getInstance() {
+        if (instance == null) {
+            instance = new Database();
+        }
+        return instance;
+    }
+
+    // Método para obtener la conexión
+    public Connection getConnection() {
+        return connection;
     }
 }
