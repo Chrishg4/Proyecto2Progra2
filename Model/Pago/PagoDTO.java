@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class PagoDTO {
     private int idpago;
-    private Customer customer;
+    private int customer;
     private Date fecha;
     private double subtotal;
     private double impuesto;
@@ -23,7 +23,7 @@ public class PagoDTO {
         return idpago;
     }
 
-    public Customer getCustomer() {
+    public int getCustomer() {
         return customer;
     }
 
@@ -43,7 +43,7 @@ public class PagoDTO {
         return total;
     }
 
-    public PagoDTO(int pago, Customer customer, Date fecha, double subtotal, double impuesto, double total) {
+    public PagoDTO(int pago, int customer, Date fecha, double subtotal, double impuesto, double total) {
         this.idpago = pago;
         this.customer = customer;
         this.fecha = fecha;
