@@ -26,7 +26,7 @@ public class PagoMapper implements Mapper<Pago, PagoDTO> {
       }
       return new PagoDTO(
       ent.getIdpago(),
-              ent.getCustomer(),
+              ent.getCustomer.getId(),
               ent.getFecha(),
               ent.getSubtotal(),
               ent.getImpuesto(),
