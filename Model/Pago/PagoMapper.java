@@ -20,27 +20,27 @@ public class PagoMapper implements Mapper<Pago, PagoDTO> {
 
     @Override
     public PagoDTO toDto(Pago ent) {
-      if (ent == null){
-          return null;
-      }
-      return new PagoDTO(
-              ent.getIdpago(),
-              ent.getCustomer().getCedula(),
-              ent.getFecha(),
-              ent.getSubtotal(),
-              ent.getImpuesto(),
-              ent.getTotal()
-      );
+        if (ent == null) {
+            return null;
+        }
+        return new PagoDTO(
+                ent.getIdpago(),
+                ent.getCustomer().getCedula(),
+                ent.getFecha(),
+                ent.getSubtotal(),
+                ent.getImpuesto(),
+                ent.getTotal()
+        );
     }
 
     @Override
     public Pago toEntity(PagoDTO dto) {
-        if (dto == null){
+        if (dto == null) {
             return null;
         }
-        try{
+        try {
             return new Pago(
-            dto.getIdPago(),
+                    dto.getIdPago(),
                     new CustomerMapper().toEntity(new CustomerDAO(Database.getConnection()).read(dto.getCustomer())),
                     dto.getFecha(),
                     dto.getSubtotal(),
@@ -54,5 +54,5 @@ public class PagoMapper implements Mapper<Pago, PagoDTO> {
         }
         return null;
     }
-    
+
 }
