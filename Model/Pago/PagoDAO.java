@@ -25,7 +25,7 @@ public class PagoDAO extends DaoCRD<PagoDTO>{
     public boolean create(PagoDTO dto) throws SQLException {
           stmt = connection.prepareStatement("call PayCreate(?,?,?,?,?)");
         stmt.setInt(1, dto.getIdPago());
-        stmt.setInt(2, dto.getCustomer()); 
+        stmt.setString(2, dto.getCustomer()); 
         stmt.setDate(3, new Date(dto.getFecha().getTime()));
         stmt.setDouble(4, dto.getSubtotal());
         stmt.setDouble(5, dto.getImpuesto());
@@ -40,7 +40,7 @@ public class PagoDAO extends DaoCRD<PagoDTO>{
         if (rs.next()) {
             return new PagoDTO(
                    rs.getInt(1),
-                    rs.getInt(2),
+                    rs.getString(2),
                     rs.getDate(3),
                     rs.getDouble(4),
                     rs.getDouble(5),
@@ -58,7 +58,7 @@ public class PagoDAO extends DaoCRD<PagoDTO>{
         while (rs.next()) {
             dtos.add(new PagoDTO(
                     rs.getInt(1),
-                    rs.getInt(2),
+                    rs.getString(2),
                     rs.getDate(3),
                     rs.getDouble(4),
                     rs.getDouble(5),

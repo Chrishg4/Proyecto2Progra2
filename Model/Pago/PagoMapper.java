@@ -8,7 +8,6 @@ import Database.Database;
 import Model.Customer.CustomerDAO;
 import Model.Customer.CustomerMapper;
 import Model.Mapper.Mapper;
-import Model.Pago.Pago;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,8 +24,8 @@ public class PagoMapper implements Mapper<Pago, PagoDTO> {
           return null;
       }
       return new PagoDTO(
-      ent.getIdpago(),
-              ent.getCustomer(),
+              ent.getIdpago(),
+              ent.getCustomer().getCedula(),
               ent.getFecha(),
               ent.getSubtotal(),
               ent.getImpuesto(),

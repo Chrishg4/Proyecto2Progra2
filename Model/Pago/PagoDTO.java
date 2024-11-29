@@ -4,7 +4,6 @@
  */
 package Model.Pago;
 
-import Model.Customer.Customer;
 import java.util.Date;
 
 /**
@@ -13,7 +12,7 @@ import java.util.Date;
  */
 public class PagoDTO {
     private int idpago;
-    private int customer;
+    private String customer;
     private Date fecha;
     private double subtotal;
     private double impuesto;
@@ -23,7 +22,7 @@ public class PagoDTO {
         return idpago;
     }
 
-    public int getCustomer() {
+    public String getCustomer() {
         return customer;
     }
 
@@ -43,12 +42,14 @@ public class PagoDTO {
         return total;
     }
 
-    public PagoDTO(int pago, int customer, Date fecha, double subtotal, double impuesto, double total) {
-        this.idpago = pago;
+    public PagoDTO(int idpago, String customer, Date fecha, double subtotal, double impuesto, double total) {
+        this.idpago = idpago;
         this.customer = customer;
         this.fecha = fecha;
         this.subtotal = subtotal;
         this.impuesto = impuesto;
         this.total = total;
     }
+
+  
 }
