@@ -4,11 +4,10 @@
  */
 package Model.Pago;
 
-import Model.Customer.CustomerDTO;
 import Model.DAO.DaoCRD;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
