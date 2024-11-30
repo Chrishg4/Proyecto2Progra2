@@ -21,7 +21,7 @@ public class Database {
     private static final String PASSWORD = "";
 
     // Constructor privado para evitar instancias externas
-    private Database() {
+    private Database() throws SQLException{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             this.connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -31,7 +31,7 @@ public class Database {
     }
 
     // Método para obtener la instancia única
-    public static synchronized Database getInstance() {
+    public static synchronized Database getInstance() throws SQLException {
         if (instance == null) {
             instance = new Database();
         }
