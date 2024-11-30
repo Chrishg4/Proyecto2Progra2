@@ -4,10 +4,38 @@
  */
 package Model.Usuarios;
 
+import Model.Mapper.Mapper;
+
 /**
  *
  * @author chris
  */
-public class UsuarioMapper {
+public class UsuarioMapper implements Mapper<Usuario, UsuarioDTO>{
+
+    @Override
+    public UsuarioDTO toDto(Usuario ent) {
+       if (ent == null) return null;
+        return new UsuarioDTO(
+            ent.getId(),
+            ent.getUsername(),
+            ent.getPassword(),
+            ent.getNombre(),
+            ent.getEmail(),
+            ent.getRol()
+        );
+    }
+
+    @Override
+    public Usuario toEntity(UsuarioDTO dto) {
+        if (dto == null) return null;
+        return new Usuario(
+            dto.getId(),
+            dto.getUsername(),
+            dto.getPassword(),
+            dto.getNombre(),
+            dto.getEmail(),
+            dto.getRol()
+        );
+    }
     
 }
