@@ -21,7 +21,7 @@ public class CustomerMapper implements Mapper<Customer, CustomerDTO> {
                 UtilDate.toSqlDate(ent.getFechaNacimiento()),
                 ent.getContacto(),
                 ent.getTipoMembresia()
-        );
+        ); 
     }
 
     @Override
