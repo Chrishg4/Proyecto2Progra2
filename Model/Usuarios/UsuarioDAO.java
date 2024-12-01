@@ -27,7 +27,7 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
         stmt.setString(3, dto.getPassword());
         stmt.setString(4, dto.getNombre());
         stmt.setString(5, dto.getEmail());
-        stmt.setString(6, dto.getRol());
+        stmt.setString(6, dto.getRol().name());
         
         return stmt.executeUpdate() > 0;
     }
@@ -40,7 +40,7 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
         stmt.setString(3, dto.getPassword());
         stmt.setString(4, dto.getNombre());
         stmt.setString(5, dto.getEmail());
-        stmt.setString(6, dto.getRol());
+        stmt.setString(6, dto.getRol().name());
         
         // Verifica si agrega a la bd los datos
         return stmt.executeUpdate() > 0;
@@ -59,7 +59,7 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
                     rs.getString(3),   // password
                     rs.getString(4),   // nombre
                     rs.getString(5),   // email
-                    rs.getString(6)    // rol
+                    Roles.valueOf(rs.getString(6))    // rol
             );
         }
         return null;
@@ -78,7 +78,7 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
                     rs.getString(3),   // password
                     rs.getString(4),   // nombre
                     rs.getString(5),   // email
-                    rs.getString(6)    // rol
+                    Roles.valueOf(rs.getString(6))    // rol
             ));
         }
         return dtos;

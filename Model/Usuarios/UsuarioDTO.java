@@ -9,8 +9,7 @@ package Model.Usuarios;
  * @author chris
  */
 public class UsuarioDTO {
-      public static final String ROL_ADMINISTRADOR = "ADMINISTRADOR";
-    public static final String ROL_ENTRENADOR = "ENTRENADOR";
+     
 
     // Atributos privados
     private int id;
@@ -18,7 +17,7 @@ public class UsuarioDTO {
     private String password;
     private String nombre;
     private String email;
-    private String rol;
+    private Roles rol;
 
    
 
@@ -42,12 +41,12 @@ public class UsuarioDTO {
         return email;
     }
 
-    public String getRol() {
+    public Roles getRol() {
         return rol;
     }
 
 
-    public UsuarioDTO(int id, String username, String password, String nombre, String email, String rol) {
+    public UsuarioDTO(int id, String username, String password, String nombre, String email, Roles rol) {
         this.id = id;
         this.username = username;
         this.password = password;
