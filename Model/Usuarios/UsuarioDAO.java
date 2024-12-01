@@ -47,9 +47,9 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
     }
 
     @Override
-    public UsuarioDTO read(Object id) throws SQLException {
+    public UsuarioDTO read(Object username) throws SQLException {
           stmt = connection.prepareStatement("call UsuarioRead(?)");
-        stmt.setString(1, String.valueOf(id));
+        stmt.setString(1, String.valueOf(username));
         rs = stmt.executeQuery();
         
         if (rs.next()) {
