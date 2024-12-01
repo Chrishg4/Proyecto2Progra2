@@ -5,7 +5,6 @@
 package Model.Pago;
 
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
@@ -37,7 +36,7 @@ public class Factura {
             documento.add(new Paragraph("Total: " + pago.getTotal()));
 
             documento.add(new Paragraph("======================================"));
-            documento.add(new Paragraph("Gracias por su pago!"));
+            documento.add(new Paragraph("Gracias por realizar su pago!"));
 
         } catch (Exception e) {
             e.printStackTrace();
