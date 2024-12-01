@@ -20,7 +20,7 @@ public class Usuario {
     private String email;
     private String rol;
 
-   
+  
 
     public int getId() {
         return id;
