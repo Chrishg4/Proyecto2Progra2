@@ -5,7 +5,6 @@
 package Controller;
 
 import Database.Database;
-import Model.Pago.Factura;
 import Model.Pago.Pago;
 import Model.Pago.PagoDAO;
 import Model.Pago.PagoDTO;
@@ -112,24 +111,4 @@ public class PagoController {
                 && pago.getImpuesto() >= 0
                 && pago.getTotal() >= 0;
     }
-    
-    public void generarFactura(Pago pago) {
-    if (pago == null) {
-        view.showError("No hay datos de pago para generar la factura");
-        return;
-    }
-
-    try {
-        String rutaPDF = "factura_" + pago.getIdpago() + ".pdf";
-        String rutaXML = "factura_" + pago.getIdpago() + ".xml";
-
-        Factura.generarFacturaPDF(pago, rutaPDF);
-        Factura.generarFacturaXML(pago, rutaXML);
-
-        view.showMessage("Factura generada correctamente: " + rutaPDF + " y " + rutaXML);
-    } catch (Exception e) {
-        view.showError("Error al generar la factura: " + e.getMessage());
-    }
-}
-
 }
