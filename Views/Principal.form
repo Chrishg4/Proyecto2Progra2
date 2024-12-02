@@ -25,7 +25,7 @@
             <Property name="text" type="java.lang.String" value="Clases"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="ClaseFrame frmCl = new ClaseFrame();&#xa;// Agregar el MouseListener al JMenu para detectar clics&#xa;jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;        // Mostrar el JInternalFrame &quot;jMenu1&quot;&#xa;        jDesktopPane1.add(frmCl);&#xa;        if (!frmCl.isVisible()) {&#xa;            frmCl.setVisible(true);&#xa;        }&#xa;        frmCl.toFront(); // Traer el frame al frente&#xa;    }&#xa;});"/>
+            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="ClaseFrame frmCl = new ClaseFrame();&#xa;// Agregar el MouseListener al JMenu para detectar clics&#xa;jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;        // Mostrar el JInternalFrame &quot;jMenu1&quot;&#xa;        jDesktopPane1.add(frmCl);&#xa;        if (!frmCl.isVisible()) {&#xa;            frmCl.setVisible(true);&#xa;        }&#xa;        frmCl.toFront(); // Traer el frame al frente&#xa;    }&#xa;});"/>
           </AuxValues>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
@@ -33,7 +33,7 @@
             <Property name="text" type="java.lang.String" value="Pagos"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="PagoFrame frmP = new PagoFrame();&#xa;// Agregar el MouseListener al JMenu para detectar clics&#xa;jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;        // Mostrar el JInternalFrame &quot;jMenu1&quot;&#xa;        jDesktopPane1.add(frmP);&#xa;        if (!frmP.isVisible()) {&#xa;            frmP.setVisible(true);&#xa;        }&#xa;        frmP.toFront(); // Traer el frame al frente&#xa;    }&#xa;});"/>
+            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="PagoFrame frmP = new PagoFrame();&#xa;// Agregar el MouseListener al JMenu para detectar clics&#xa;jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;        // Mostrar el JInternalFrame &quot;jMenu1&quot;&#xa;        jDesktopPane1.add(frmP);&#xa;        if (!frmP.isVisible()) {&#xa;            frmP.setVisible(true);&#xa;        }&#xa;        frmP.toFront(); // Traer el frame al frente&#xa;    }&#xa;});"/>
           </AuxValues>
         </Menu>
       </SubComponents>

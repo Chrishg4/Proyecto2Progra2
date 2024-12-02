@@ -99,7 +99,7 @@ public class Principal extends javax.swing.JFrame {
 
         ClaseFrame frmCl = new ClaseFrame();
         // Agregar el MouseListener al JMenu para detectar clics
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 // Mostrar el JInternalFrame "jMenu1"
@@ -117,7 +117,7 @@ public class Principal extends javax.swing.JFrame {
 
         PagoFrame frmP = new PagoFrame();
         // Agregar el MouseListener al JMenu para detectar clics
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 // Mostrar el JInternalFrame "jMenu1"
