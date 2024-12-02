@@ -6,7 +6,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Clientes"/>
+            <Property name="text" type="java.lang.String" value="Agregar Cliente"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="// Supongo que ya tienes declarado algo como:&#xa;&#xa;ClientesFrame frmC = new ClientesFrame();&#xa;// Agregar el MouseListener al JMenu para detectar clics&#xa;jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;        // Mostrar el JInternalFrame &quot;jMenu1&quot;&#xa;        jDesktopPane1.add(frmC);&#xa;        if (!frmC.isVisible()) {&#xa;            frmC.setVisible(true);&#xa;        }&#xa;        frmC.toFront(); // Traer el frame al frente&#xa;    }&#xa;});"/>
@@ -34,6 +34,14 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="PagoFrame frmP = new PagoFrame();&#xa;// Agregar el MouseListener al JMenu para detectar clics&#xa;jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;        // Mostrar el JInternalFrame &quot;jMenu1&quot;&#xa;        jDesktopPane1.add(frmP);&#xa;        if (!frmP.isVisible()) {&#xa;            frmP.setVisible(true);&#xa;        }&#xa;        frmP.toFront(); // Traer el frame al frente&#xa;    }&#xa;});"/>
+          </AuxValues>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BuscarCliente"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="SearchCliente frmSH = new SearchCliente();&#xa;// Agregar el MouseListener al JMenu para detectar clics&#xa;jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    @Override&#xa;    public void mouseClicked(java.awt.event.MouseEvent evt) {&#xa;        // Mostrar el JInternalFrame &quot;jMenu1&quot;&#xa;        jDesktopPane1.add(frmSH);&#xa;        if (!frmSH.isVisible()) {&#xa;            frmSH.setVisible(true);&#xa;        }&#xa;        frmSH.toFront(); // Traer el frame al frente&#xa;    }&#xa;});"/>
           </AuxValues>
         </Menu>
       </SubComponents>
