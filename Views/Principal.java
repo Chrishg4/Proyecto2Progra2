@@ -43,6 +43,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +58,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 305, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Clientes");
+        jMenu1.setText("Agregar Cliente");
 
         // Supongo que ya tienes declarado algo como:
 
@@ -131,6 +132,24 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setText("BuscarCliente");
+
+        SearchCliente frmSH = new SearchCliente();
+        // Agregar el MouseListener al JMenu para detectar clics
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                // Mostrar el JInternalFrame "jMenu1"
+                jDesktopPane1.add(frmSH);
+                if (!frmSH.isVisible()) {
+                    frmSH.setVisible(true);
+                }
+                frmSH.toFront(); // Traer el frame al frente
+            }
+        });
+
+        jMenuBar1.add(jMenu5);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,6 +208,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
