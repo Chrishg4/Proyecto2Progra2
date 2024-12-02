@@ -13,7 +13,7 @@ public class UsuarioDTO {
 
     // Atributos privados
     private int id;
-    private String username;
+    
     private String password;
     private String nombre;
     private String email;
@@ -25,9 +25,7 @@ public class UsuarioDTO {
         return id;
     }
 
-    public String getUsername() {
-        return username;
-    }
+  
 
     public String getPassword() {
         return password;
@@ -46,9 +44,8 @@ public class UsuarioDTO {
     }
 
 
-    public UsuarioDTO(int id, String username, String password, String nombre, String email, Roles rol) {
+    public UsuarioDTO(int id, String password, String nombre, String email, Roles rol) {
         this.id = id;
-        this.username = username;
         this.password = password;
         this.nombre = nombre;
         this.email = email;

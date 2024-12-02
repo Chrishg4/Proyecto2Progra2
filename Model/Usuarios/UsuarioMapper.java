@@ -17,7 +17,7 @@ public class UsuarioMapper implements Mapper<Usuario, UsuarioDTO>{
        if (ent == null) return null;
         return new UsuarioDTO(
             ent.getId(),
-            ent.getUsername(),
+            
             ent.getPassword(),
             ent.getNombre(),
             ent.getEmail(),
@@ -30,7 +30,7 @@ public class UsuarioMapper implements Mapper<Usuario, UsuarioDTO>{
         if (dto == null) return null;
         return new Usuario(
             dto.getId(),
-            dto.getUsername(),
+            
             dto.getPassword(),
             dto.getNombre(),
             dto.getEmail(),

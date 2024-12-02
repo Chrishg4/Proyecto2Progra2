@@ -13,7 +13,7 @@ public class Usuario {
 
     // Atributos privados
     private int id;
-    private String username;
+   // private String username;
     private String password;
     private String nombre;
     private String email;
@@ -25,9 +25,7 @@ public class Usuario {
         return id;
     }
 
-    public String getUsername() {
-        return username;
-    }
+   
 
     public String getPassword() {
         return password;
@@ -49,9 +47,7 @@ public class Usuario {
         this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+   
 
     public void setPassword(String password) {
         this.password = password;
@@ -69,17 +65,17 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public Usuario(String username, String password, String nombre, String email, Roles rol) {
-        this.username = username;
+    public Usuario( String password, String nombre, String email, Roles rol) {
+        
         this.password = password;
         this.nombre = nombre;
         this.email = email;
         this.rol = rol;
     }
 
-    public Usuario(int id, String username, String password, String nombre, String email, Roles rol) {
+    public Usuario(int id,  String password, String nombre, String email, Roles rol) {
         this.id = id;
-        this.username = username;
+       
         this.password = password;
         this.nombre = nombre;
         this.email = email;
@@ -95,6 +91,10 @@ public class Usuario {
 //    public boolean esEntrenador() {
 //        return ROL_ENTRENADOR.equals(this.rol);
 //    }
+    
+    public Usuario(){
+        this(0,"","","",Roles.ADMINISTRADOR);
+    }
 
     
 }

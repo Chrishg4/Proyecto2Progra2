@@ -23,11 +23,11 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
     public boolean update(UsuarioDTO dto) throws SQLException {
         stmt = connection.prepareStatement("call UsuarioUpdate(?,?,?,?,?,?)");
         stmt.setInt(1, dto.getId());
-        stmt.setString(2, dto.getUsername());
-        stmt.setString(3, dto.getPassword());
-        stmt.setString(4, dto.getNombre());
-        stmt.setString(5, dto.getEmail());
-        stmt.setString(6, dto.getRol().name());
+        
+        stmt.setString(2, dto.getPassword());
+        stmt.setString(3, dto.getNombre());
+        stmt.setString(4, dto.getEmail());
+        stmt.setString(5, dto.getRol().name());
         
         return stmt.executeUpdate() > 0;
     }
@@ -36,11 +36,11 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
     public boolean create(UsuarioDTO dto) throws SQLException {
           stmt = connection.prepareStatement("call UsuarioCreate(?,?,?,?,?,?)");
         stmt.setInt(1, dto.getId());
-        stmt.setString(2, dto.getUsername());
-        stmt.setString(3, dto.getPassword());
-        stmt.setString(4, dto.getNombre());
-        stmt.setString(5, dto.getEmail());
-        stmt.setString(6, dto.getRol().name());
+        
+        stmt.setString(2, dto.getPassword());
+        stmt.setString(3, dto.getNombre());
+        stmt.setString(4, dto.getEmail());
+        stmt.setString(5, dto.getRol().name());
         
         // Verifica si agrega a la bd los datos
         return stmt.executeUpdate() > 0;
@@ -55,11 +55,11 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
         if (rs.next()) {
             return new UsuarioDTO(
                     rs.getInt(1),      // id
-                    rs.getString(2),   // username
-                    rs.getString(3),   // password
-                    rs.getString(4),   // nombre
-                    rs.getString(5),   // email
-                    Roles.valueOf(rs.getString(6))    // rol
+                    
+                    rs.getString(2),   // password
+                    rs.getString(3),   // nombre
+                    rs.getString(4),   // email
+                    Roles.valueOf(rs.getString(5))    // rol
             );
         }
         return null;
@@ -74,11 +74,11 @@ public class UsuarioDAO extends DaoCRUD<UsuarioDTO> {
         while (rs.next()) {
             dtos.add(new UsuarioDTO(
                     rs.getInt(1),      // id
-                    rs.getString(2),   // username
-                    rs.getString(3),   // password
-                    rs.getString(4),   // nombre
-                    rs.getString(5),   // email
-                    Roles.valueOf(rs.getString(6))    // rol
+                    
+                    rs.getString(2),   // password
+                    rs.getString(3),   // nombre
+                    rs.getString(4),   // email
+                    Roles.valueOf(rs.getString(5))    // rol
             ));
         }
         return dtos;

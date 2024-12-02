@@ -167,11 +167,12 @@ private UsuarioDAO usuarioDAO;
 
     // Validación de datos requeridos para el usuario
     private boolean validarDatosRequeridos(Usuario usuario) {
-        return usuario != null
-            && !usuario.getUsername().trim().isEmpty()
-            && !usuario.getPassword().trim().isEmpty()
-            && !usuario.getNombre().trim().isEmpty()
-            && !usuario.getEmail().trim().isEmpty()
-            && !usuario.getRol().trim().isEmpty();
-    }
+    return usuario != null
+        && !usuario.getUsername().trim().isEmpty()
+        && !usuario.getPassword().trim().isEmpty()
+        && !usuario.getNombre().trim().isEmpty()
+        && !usuario.getEmail().trim().isEmpty()
+        && usuario.getRol() != null;  // Verificar que el enum Rol no sea nulo
+}
+
 }
