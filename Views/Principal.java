@@ -41,6 +41,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,11 +50,11 @@ public class Principal extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 722, Short.MAX_VALUE)
+            .addGap(0, 564, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGap(0, 305, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Clientes");
@@ -92,6 +94,42 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Clases");
+
+        ClaseFrame frmCl = new ClaseFrame();
+        // Agregar el MouseListener al JMenu para detectar clics
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                // Mostrar el JInternalFrame "jMenu1"
+                jDesktopPane1.add(frmCl);
+                if (!frmCl.isVisible()) {
+                    frmCl.setVisible(true);
+                }
+                frmCl.toFront(); // Traer el frame al frente
+            }
+        });
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Pagos");
+
+        PagoFrame frmP = new PagoFrame();
+        // Agregar el MouseListener al JMenu para detectar clics
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                // Mostrar el JInternalFrame "jMenu1"
+                jDesktopPane1.add(frmP);
+                if (!frmP.isVisible()) {
+                    frmP.setVisible(true);
+                }
+                frmP.toFront(); // Traer el frame al frente
+            }
+        });
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -149,6 +187,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
