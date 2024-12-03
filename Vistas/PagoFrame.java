@@ -4,14 +4,25 @@
  */
 package Vistas;
 
+import Controller.PagoController;
+import Model.Pago.Pago;
+import Utils.UtilDate;
+import Utils.UtilGui;
+import View.View;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author chris
  */
-public class PagoFrame extends javax.swing.JInternalFrame {
-
+public class PagoFrame extends javax.swing.JInternalFrame implements View<Pago>{
+    Pago pago;
+    PagoController controller;
+    
+    
     /**
-     * Creates new form ClientesFrame
+     * Creates new form PagoFrame
      */
     public PagoFrame() {
         initComponents();
@@ -163,12 +174,32 @@ public class PagoFrame extends javax.swing.JInternalFrame {
         );
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save.png"))); // NOI18N
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
 
         buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Search.png"))); // NOI18N
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
 
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Delete.png"))); // NOI18N
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
 
         editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Edit.png"))); // NOI18N
+        editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,6 +241,72 @@ public class PagoFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     private void clear(){
+        UtilGui.clearTxts(
+                idCliente,
+                idFactura,
+                fecha,
+                impuesto,
+                subtotal,
+                total
+                
+        );
+    }
+     
+      public void changeStateBtns() {
+        UtilGui.changeStateButtons(guardar,eliminar,buscar,editar);
+    }
+      
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+        // TODO add your handling code here:
+         if (!validateRequired()){
+            showError("Faltan datos requeridos");
+            return;
+        }
+        pago=new Pago(
+                idCliente.getText(),
+                idFactura.getText(),
+                UtilDate.toLocalDate(fecha.getText()),
+                impuesto.getText(),
+                subtotal.getText(),
+                 total.getText()
+        );
+        controller.create(pago);
+        
+        changeStateBtns();
+    }//GEN-LAST:event_guardarActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        // TODO add your handling code here:
+             if (pago == null) {
+        showError("No hay ningún pago cargado actualmente");
+        return;
+    }
+
+    int option = JOptionPane.showConfirmDialog(
+        this, 
+        "¿Está seguro que desea eliminar el pago actual?",
+        "Confirmar Eliminación", 
+        JOptionPane.YES_NO_OPTION
+    );
+
+    if (option == JOptionPane.NO_OPTION) return;
+
+    // Aquí obtenemos el id del pago y lo pasamos al método delete
+    controller.delete(pago.getIdpago());
+    clear();
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_buscarActionPerformed
+
+    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_editarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
@@ -232,4 +329,29 @@ public class PagoFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTextField subtotal;
     private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void show(Pago ent) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void showAll(List<Pago> ents) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void showMessage(String msg) {
+       JOptionPane.showMessageDialog(this, msg, "Informacion", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    public void showError(String err) {
+        JOptionPane.showMessageDialog(this, err, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    @Override
+    public boolean validateRequired() {
+         return UtilGui.validateFields(idCliente,idFactura,fecha,impuesto,subtotal,total);
+    }
 }

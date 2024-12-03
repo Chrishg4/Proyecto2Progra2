@@ -351,7 +351,7 @@ public class ClientesFrame extends javax.swing.JInternalFrame implements View<Cu
     int option = JOptionPane.showConfirmDialog(
         this, 
         "¿Está seguro que desea eliminar el cliente actual?",
-        "Confirmar Eliminación", 
+        "Confirmar eliminación", 
         JOptionPane.YES_NO_OPTION
     );
 
