@@ -2,20 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Views;
+package Vistas;
 
+import Controller.CustomerController;
+import Controller.UsuarioController;
+import Model.Customer.Customer;
+import Model.Usuarios.Roles;
+import Model.Usuarios.Usuario;
+import Model.Usuarios.UsuarioDAO;
+import Utils.UtilDate;
+import Utils.UtilGui;
+import View.View;
+import Vistas.MenuAdministrador;
+import Vistas.MenuEntrenador;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author chris
  * 
  */
-public class Login extends javax.swing.JFrame {
-
+public class Login extends javax.swing.JFrame implements View<Usuario> {
+CustomerController controller;
+    Usuario usuario;
     /**
      * Creates new form Login
      */
@@ -58,7 +73,7 @@ public class Login extends javax.swing.JFrame {
         rol = new javax.swing.JComboBox<>();
         login = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        id1 = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +128,7 @@ public class Login extends javax.swing.JFrame {
         jDesktopPane1.setLayer(rol, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(login, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(id1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -129,7 +144,7 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -173,7 +188,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(12, 12, 12)
@@ -212,8 +227,145 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_correoActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
+     /*
+        if (!validateRequired()) {
+        showError("Faltan datos requeridos");
+        return;
+    }
+
+    // Crear un objeto Usuario con los datos del formulario
+    Usuario usuario = new Usuario(
+            txtPassword.getText(),
+            txtNombre.getText(),
+            txtEmail.getText(),
+            (Roles) rol.getSelectedItem()  // El rol seleccionado por el usuario
+    );
+
+    // Llamar al controlador para guardar el usuario en la base de datos
+    UsuarioController controller = new UsuarioController(this);
+    controller.create(usuario);
+
+    // Cambiar el estado de los campos de texto (si es necesario)
+    this.setEditableStateTxts(false);
+
+    // Cambiar el estado de los botones según la lógica de tu interfaz
+    changeStateBtns();
+*/
+
+       String selectedRol = (String) rol.getSelectedItem();
+
+        // Verificar el rol y mostrar el menú correspondiente
+        if (selectedRol.equals("Administrador")) {
+            // Crear una instancia de MenuAdministrador
+            MenuAdministrador menuAdmin = new MenuAdministrador();
+            menuAdmin.setVisible(true);
+        } else if (selectedRol.equals("Entrenador")) {
+            // Crear una instancia de MenuEntrenador
+            MenuEntrenador menuEntrenador = new MenuEntrenador();
+            menuEntrenador.setVisible(true);
+        } else {
+            // Opcional: Manejar otros roles si es necesario
+            System.out.println("Rol no reconocido");
+        }
+
+        // Cerrar la ventana de login si se desea
+        dispose();  // Esto cierra la ventana actual (el Login)
+    
+
     }//GEN-LAST:event_loginActionPerformed
+    
+        @Override
+    public void show(Usuario ent) {
+        usuario=ent;
+        if (ent==null) {
+            
+            return;
+        }
+        id.setText(ent.getId());
+        nombre.setText(ent.getNombre());
+        correo.setText(ent.getEmail());
+        contraseña.setText(ent.getPassword());
+        rol.setText(ent.getRol());
+        
+    }
+
+    @Override
+    public void showAll(List<Usuario> ents) {
+        
+         if(frm==null){
+            frm = new  FrmCustomerSearch(null,true);
+            frm.setObserver(this);
+        }
+        frm.setEnts(ents);
+        frm.setVisible(true);
+        
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Informacion", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    public void showError(String err) {
+         JOptionPane.showMessageDialog(this, err, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    @Override
+    public boolean validateRequired() {
+        return UtilGui.validateFields(id,nombre,correo,contraseña,rol);
+    }
+
+   public void changeStateBtns() {
+        UtilGui.changeStateButtons(login);
+    }
+    
+    /*
+    @Override
+    public void show(Customer ent) {
+        customer=ent;
+        if (ent==null) {
+            clear();
+            return;
+        }
+        id.setText(ent.getId());
+        nombre.setText(ent.getNombre());
+        correo.setText(UtilDate.toString(ent.getBirthDate()));
+        contraseña.setText(String.valueOf(ent.getAge()));
+        rol.setText(ent.getPhone());
+        
+    }
+
+    @Override
+    public void showAll(List<Customer> ents) {
+        if(frm==null){
+            frm = new  FrmCustomerSearch(null,true);
+            frm.setObserver(this);
+        }
+        frm.setEnts(ents);
+        frm.setVisible(true);
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Informacion", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    public void showError(String err) {
+        JOptionPane.showMessageDialog(this, err, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    @Override
+    public boolean validateRequired() {
+        return UtilGui.validateFields(id,nombre,correo,contraseña,rol);
+    }
+    
+    public void changeStateBtns() {
+        UtilGui.changeStateButtons(login);
+    }
+    
+    
 
     /**
      * @param args the command line arguments
@@ -254,7 +406,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField contraseña;
     private javax.swing.JTextField correo;
     private javax.swing.JTextField id;
-    private javax.swing.JTextField id1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -263,6 +414,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton login;
+    private javax.swing.JTextField nombre;
     private javax.swing.JComboBox<String> rol;
     // End of variables declaration//GEN-END:variables
+
+
 }

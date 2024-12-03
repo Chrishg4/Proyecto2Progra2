@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * @author chris
  */
 public class UsuarioController {
-private UsuarioDAO usuarioDAO;
+ private UsuarioDAO usuarioDAO;
     private final View vista;
     private final UsuarioMapper mapper;
     private Usuario usuarioActual; // Para guardar el usuario autenticado
@@ -131,7 +131,7 @@ private UsuarioDAO usuarioDAO;
     }
 
     // Método para autenticar un usuario dentro del controlador
-    public void iniciarSesion(String nombreUsuario, String contraseña) {
+    public void iniciarSesion(String email, String contraseña) {
         if (usuarioDAO == null) {
             vista.showError("El acceso a la base de datos no se ha inicializado correctamente.");
             return;
@@ -139,7 +139,7 @@ private UsuarioDAO usuarioDAO;
 
         try {
             UsuarioDTO dto = usuarioDAO.readAll().stream()
-                .filter(u -> u.getUsername().equals(nombreUsuario) && u.getPassword().equals(contraseña))
+                .filter(u -> u.getEmail().equals(email) && u.getPassword().equals(contraseña))
                 .findFirst()
                 .orElse(null);
 
@@ -167,12 +167,12 @@ private UsuarioDAO usuarioDAO;
 
     // Validación de datos requeridos para el usuario
     private boolean validarDatosRequeridos(Usuario usuario) {
-    return usuario != null
-        && !usuario.getUsername().trim().isEmpty()
-        && !usuario.getPassword().trim().isEmpty()
-        && !usuario.getNombre().trim().isEmpty()
-        && !usuario.getEmail().trim().isEmpty()
-        && usuario.getRol() != null;  // Verificar que el enum Rol no sea nulo
-}
+        return usuario != null
+            && !usuario.getEmail().trim().isEmpty()
+            && !usuario.getPassword().trim().isEmpty()
+            && !usuario.getNombre().trim().isEmpty()
+            && !usuario.getEmail().trim().isEmpty()
+            && usuario.getRol() != null;  // Verificar que el enum Rol no sea nulo
+    }
 
 }

@@ -11,7 +11,7 @@ package Model.Usuarios;
 public class Usuario {
       
 
-    // Atributos privados
+    
     private int id;
    // private String username;
     private String password;
@@ -81,6 +81,18 @@ public class Usuario {
         this.email = email;
         this.rol = rol;
     }
+
+    
+    /**
+     *
+     */
+    public Usuario(){
+        this(0,"","","",Roles.ADMINISTRADOR);
+        
+    }
+
+    
+}
 //    
 //     // Método para verificar si es administrador
 //    public boolean esAdministrador() {
@@ -91,10 +103,3 @@ public class Usuario {
 //    public boolean esEntrenador() {
 //        return ROL_ENTRENADOR.equals(this.rol);
 //    }
-    
-    public Usuario(){
-        this(0,"","","",Roles.ADMINISTRADOR);
-    }
-
-    
-}
