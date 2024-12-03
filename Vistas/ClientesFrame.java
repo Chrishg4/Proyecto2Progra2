@@ -317,7 +317,7 @@ public class ClientesFrame extends javax.swing.JInternalFrame implements View<Cu
     }
     
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-
+ 
 
         // TODO add your handling code here:
         
