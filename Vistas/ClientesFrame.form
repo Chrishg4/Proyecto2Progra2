@@ -139,26 +139,26 @@
                               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="id" max="32767" attributes="0"/>
+                              <Component id="txtId" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="nombre" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="txtName" min="-2" pref="87" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="fechaNan" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                      <Component id="txtDate" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="contacto" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                              <Component id="txtPhone" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="membresia" min="-2" pref="133" max="-2" attributes="0"/>
+                              <Component id="txtMembresia" min="-2" pref="133" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -177,20 +177,20 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="contacto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="membresia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMembresia" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="id" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fechaNan" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
@@ -198,14 +198,18 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="membresia">
+        <Component class="javax.swing.JTextField" name="txtMembresia">
         </Component>
+<<<<<<< HEAD:Vistas/ClientesFrame.form
         <Component class="javax.swing.JTextField" name="nombre">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreActionPerformed"/>
           </Events>
+=======
+        <Component class="javax.swing.JTextField" name="txtName">
+>>>>>>> origin/desarrollo:Views/ClientesFrame.form
         </Component>
-        <Component class="javax.swing.JTextField" name="id">
+        <Component class="javax.swing.JTextField" name="txtId">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -215,7 +219,7 @@
             <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="contacto">
+        <Component class="javax.swing.JTextField" name="txtPhone">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -233,7 +237,7 @@
             <Property name="text" type="java.lang.String" value="Cedula"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fechaNan">
+        <Component class="javax.swing.JTextField" name="txtDate">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>

@@ -12,14 +12,22 @@ import View.View;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+import Model.Customer.Customer;
+import java.util.List;
+
 /**
  *
  * @author chris
  */
+<<<<<<< HEAD:Vistas/ClientesFrame.java
 public class ClientesFrame extends javax.swing.JInternalFrame implements View<Customer>{
      Customer customer;
      CustomerController controller;
      SearchCliente frm;
+=======
+public class ClientesFrame extends javax.swing.JInternalFrame implements IView<Customer>{
+
+>>>>>>> origin/desarrollo:Views/ClientesFrame.java
     /**
      * Creates new form ClientesFrame
      */
@@ -39,14 +47,14 @@ public class ClientesFrame extends javax.swing.JInternalFrame implements View<Cu
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        membresia = new javax.swing.JTextField();
-        nombre = new javax.swing.JTextField();
-        id = new javax.swing.JTextField();
+        txtMembresia = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        contacto = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        fechaNan = new javax.swing.JTextField();
+        txtDate = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         guardar = new javax.swing.JButton();
@@ -121,21 +129,21 @@ public class ClientesFrame extends javax.swing.JInternalFrame implements View<Cu
                                 .addComponent(jLabel1))
                             .addGap(94, 94, 94))
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(id)
+                            .addComponent(txtId)
                             .addGap(49, 49, 49)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fechaNan, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(contacto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(91, 91, 91)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(membresia, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel4))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
@@ -148,18 +156,18 @@ public class ClientesFrame extends javax.swing.JInternalFrame implements View<Cu
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addComponent(membresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaNan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -413,14 +421,15 @@ public class ClientesFrame extends javax.swing.JInternalFrame implements View<Cu
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
+<<<<<<< HEAD:Vistas/ClientesFrame.java
     private javax.swing.JButton cancelar;
     private javax.swing.JButton clear;
     private javax.swing.JTextField contacto;
+=======
+>>>>>>> origin/desarrollo:Views/ClientesFrame.java
     private javax.swing.JButton editar;
     private javax.swing.JButton eliminar;
-    private javax.swing.JTextField fechaNan;
     private javax.swing.JButton guardar;
-    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -429,10 +438,44 @@ public class ClientesFrame extends javax.swing.JInternalFrame implements View<Cu
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+<<<<<<< HEAD:Vistas/ClientesFrame.java
     private javax.swing.JTextField membresia;
     private javax.swing.JTextField nombre;
     private javax.swing.JButton salida;
     // End of variables declaration//GEN-END:variables
 
     
+=======
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtMembresia;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhone;
+    // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void show(Customer customer) {
+   
+    }
+
+    @Override
+    public void showAll(List<Customer> ents) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void showError(String err) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean validateRequired() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+>>>>>>> origin/desarrollo:Views/ClientesFrame.java
 }
